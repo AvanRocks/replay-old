@@ -14,7 +14,7 @@ void Record::recordIntoBuffer() {
 	pclose(ffmpegProc);
 }
 
-Record::Record(int delay, int bitrate) {
+Record::Record(int delay, int bitrate, bool debug) {
 	DELAY = delay;
 	BITRATE = bitrate;
 	BUFFER_SIZE = DELAY * BITRATE * 1000 / 8;
@@ -27,6 +27,13 @@ Record::Record(int delay, int bitrate) {
 	#else 
 	ffmpegCmd = "ffmpeg -nostdin -loglevel panic -f pulse -i default -b:a " + bitrate_str + "k -f mp3 pipe: 2>/dev/null &";
 	#endif
+	if (debug) {
+		#ifdef _WIN32
+		cout<<"Debug mode not supported on Windows"<<'\n';
+		#else
+		ffmpegCmd = "ffmpeg -nostdin -f pulse -i default -b:a " + bitrate_str + "k -f mp3 pipe: 2>debug.out &";
+		#endif
+	}
 
 	recordingThread = std::thread(&Record::recordIntoBuffer, this);
 }

@@ -22,7 +22,7 @@ class Record {
 		static char* getTime();
 
 	public:
-		Record(int delay = 30, int bitrate = 50);
+		Record(int delay = 30, int bitrate = 50, bool debug = false);
 		~Record();
 		void saveRecording() const;
 };
