@@ -1,5 +1,6 @@
 #include "Record.h"
 #include <fstream>
+#include <cstring>
 
 void Record::recordIntoBuffer() {
 	ffmpegProc = popen(ffmpegCmd.c_str(), "r");
@@ -43,10 +44,12 @@ char* Record::getTime() {
 }
 
 void Record::saveRecording() const {
-	char* outFileName = getTime();
-	std::cout<<outFileName<<'\n';
+	std::string outputFilename = getTime();
+	outputFilename.pop_back();
+	outputFilename.append(".mp3");
+
 	std::ofstream outFile;
-	outFile.open("savedRecording.mp3", std::ios::binary);
+	outFile.open(outputFilename, std::ios::binary);
 
 	int currPos = pos;
 
