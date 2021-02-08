@@ -23,8 +23,7 @@ Record::Record(int delay, int bitrate) {
 
 	std::string bitrate_str = std::to_string(bitrate);
 	#ifdef _WIN32
-	//ffmpegCmd = "start /b ffmpeg -nostdin -loglevel panic -f dshow -i audio=\"Stereo Mix (Realtek High Definition Audio)\" -f mp3 pipe: 2> nul";
-	ffmpegCmd = "start /b ffmpeg -nostdin -loglevel panic -f dshow -i audio=\"virtual-audio-capturer\" -f mp3 pipe: 2> nul";
+	ffmpegCmd = "start /b ffmpeg -nostdin -loglevel panic -f dshow -i audio=\"Stereo Mix (Realtek High Definition Audio)\" -f mp3 pipe: 2> nul";
 	#else 
 	ffmpegCmd = "ffmpeg -nostdin -loglevel panic -f pulse -i default -b:a " + bitrate_str + "k -f mp3 pipe: 2>/dev/null &";
 	#endif
