@@ -21,7 +21,8 @@ Record::Record(int delay, int bitrate) {
 
 	buffer = new char[BUFFER_SIZE];
 
-	ffmpegCmd = "ffmpeg -nostdin -loglevel panic -f pulse -i default -b:a " + std::to_string(bitrate) + "k -f mp3 pipe: 2>/dev/null &";
+	std::string bitrate_str = std::to_string(bitrate);
+	ffmpegCmd = "ffmpeg -nostdin -loglevel panic -f pulse -i default -b:a " + bitrate_str + "k -f mp3 pipe: 2>/dev/null &";
 
 	recordingThread = std::thread(&Record::recordIntoBuffer, this);
 }
@@ -64,4 +65,5 @@ void Record::saveRecording() const {
 	}
 
 	outFile.close();
+	std::cout<<"recording saved\n";
 }

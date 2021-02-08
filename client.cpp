@@ -51,14 +51,14 @@ void takeInput(const Record& rec) {
 int main (int argc, char* argv[]) {
 	int option; 
 
-	int bitrate, delay;
+	int bitrate = 50, delay = 30;
 	while( (option = getopt(argc, argv, "b:d:")) != -1)  {  
 		switch(option)  {  
 			case 'b':
-				bitrate = validateIntOpt('b', 10, 100, argv[0]);
+				bitrate = validateIntOpt('b', 32, 150, argv[0]);
 				break;
 			case 'd':
-				delay = validateIntOpt('d', 1, 120, argv[0]);
+				delay = validateIntOpt('d', 1, 300, argv[0]);
 				break;
 			case '?':  
 				usage(argv[0]);
