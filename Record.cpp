@@ -23,15 +23,15 @@ Record::Record(int delay, int bitrate, bool debug) {
 
 	std::string bitrate_str = std::to_string(bitrate);
 	#ifdef _WIN32
-	ffmpegCmd = "start /b ffmpeg -nostdin -loglevel panic -f dshow -i audio=\"Stereo Mix (Realtek High Definition Audio)\" -f mp3 pipe: 2> nul";
+		ffmpegCmd = "start /b ffmpeg -nostdin -loglevel panic -f dshow -i audio=\"Stereo Mix (Realtek High Definition Audio)\" -f mp3 pipe: 2> nul";
 	#else 
-	ffmpegCmd = "ffmpeg -nostdin -loglevel panic -f pulse -i default -b:a " + bitrate_str + "k -f mp3 pipe: 2>/dev/null &";
+		ffmpegCmd = "ffmpeg -nostdin -loglevel panic -f pulse -i default -b:a " + bitrate_str + "k -f mp3 pipe: 2>/dev/null &";
 	#endif
 	if (debug) {
 		#ifdef _WIN32
-		cout<<"Debug mode not supported on Windows"<<'\n';
+			ffmpegCmd = "start /b ffmpeg -nostdin -f dshow -i audio=\"Stereo Mix (Realtek High Definition Audio)\" -f mp3 pipe: 2> debug-output.txt";
 		#else
-		ffmpegCmd = "ffmpeg -nostdin -f pulse -i default -b:a " + bitrate_str + "k -f mp3 pipe: 2>debug.out &";
+			ffmpegCmd = "ffmpeg -nostdin -f pulse -i default -b:a " + bitrate_str + "k -f mp3 pipe: 2>debug.out &";
 		#endif
 	}
 
