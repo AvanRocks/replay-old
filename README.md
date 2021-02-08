@@ -14,6 +14,10 @@ g++ -Wall -pedantic Record.cpp replay.cpp -pthread -o replay
 
 Now there will be an executable named 'replay' in your current directory.
 
+## Dependancies
+
+You will need ffmpeg installed, since it is used to grab your computer's audio.
+
 ## Usage
 
 ``` $ replay [-b bitrate] [-d delay] ```
