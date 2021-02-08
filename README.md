@@ -4,6 +4,26 @@ Saves a short audio replay of the last few seconds, similar to an instant replay
 
 Negates the need to constantly record your virtual school lessons to capture a key phrase. Simply type 's' whenever you missed something and the last 30 seconds of audio will be saved to your drive.
 
+## Installation
+
+Clone this git repo and compile the C++ file using g++. Use this command:
+
+``` 
+g++ -Wall -pedantic Record.cpp replay.cpp -pthread -o replay
+```
+
+Now there will be an executable named 'replay' in your current directory.
+
+## Usage
+
+``` $ replay [-b bitrate] [-d delay] ```
+
+After running `replay`, you can give input through the terminal
+
+Type 's' to save the last 'd' seconds. A 'saved recording' info message will appear.
+
+Type 'q' to quit
+
 ## Options
 
 ```
