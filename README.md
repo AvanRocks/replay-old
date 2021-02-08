@@ -9,7 +9,7 @@ Negates the need to constantly record your virtual school lessons to capture a k
 Clone this git repo and compile the C++ file using g++. Use this command:
 
 ``` 
-g++ -Wall -pedantic Record.cpp replay.cpp -pthread -o replay
+g++ Record.cpp replay.cpp -pthread -o replay
 ```
 
 Now there will be an executable named 'replay' in your current directory.
