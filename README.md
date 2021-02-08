@@ -8,12 +8,15 @@ Negates the need to constantly record your virtual school lessons to capture a k
 
 ```
 -d [delay_in_sec]     delay
-                       - set the number of seconds of past audio to record when 's' is typed
-											 - default value: 30
-
--b [bitrate_in_kHz]   bitrate 
-                       - set the bitrate of the audio recorded
-			                 - higher bitrate means better quality audio
-			                   but also a larger filesize
-											- default value: 50
 ```
+
+- set the number of seconds of past audio to record when 's' is typed
+- default value: 30
+
+```
+-b [bitrate_in_kHz]   bitrate 
+```
+
+- set the bitrate of the audio recorded
+- higher bitrate means better quality audio but also a larger filesize
+- default value: 50
