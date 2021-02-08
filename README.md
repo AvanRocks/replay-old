@@ -7,14 +7,14 @@ Negates the need to constantly record your virtual school lessons to capture a k
 ## Options
 
 ```
--d [delay_in_sec]     delay
+-d [delay_in_sec]
 ```
 
 - set the number of seconds of past audio to record when 's' is typed
 - default value: 30
 
 ```
--b [bitrate_in_kHz]   bitrate 
+-b [bitrate_in_kHz]
 ```
 
 - set the bitrate of the audio recorded
