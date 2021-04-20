@@ -1,4 +1,6 @@
-# Replay
+# replay-old
+
+This is an old version of replay. See [this link]() for the newer rewrite which doesn't depend on ffmpeg.
 
 Saves a short audio replay of the last few seconds, similar to an instant replay used in sports matches. Useful during virtual school lessons. 
 
